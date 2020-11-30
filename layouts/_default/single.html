@@ -18,6 +18,14 @@
     {{ end }}
   </div>
 
+  {{ if .Params.categories }}
+  <span class="post-tags">Categories: |
+    {{ range .Params.categories }}
+    <a href="{{ (urlize (printf "categories/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;|
+    {{ end }}
+  </span>
+  {{ end }}
+
   {{ if .Params.tags }}
   <span class="post-tags">
     {{ range .Params.tags }}
